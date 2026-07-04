@@ -34,7 +34,7 @@ export default function Auth() {
         >
           <div className="relative w-full h-full bg-zinc-50 overflow-hidden">
             <img 
-              src="../src/images/loginpage.jpg" 
+              src="../images/loginpage.jpg" 
               alt="Auth Background" 
               className="w-full h-full object-cover" 
             />

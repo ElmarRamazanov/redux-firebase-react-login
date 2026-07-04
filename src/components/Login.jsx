@@ -28,7 +28,7 @@ export default function Login() {
   return (
     <div className="flex flex-col mx-auto gap-y-4 px-8 w-full max-w-md h-full">
       <div className="flex flex-row gap-x-2 items-center mt-4 text-2xl font-bold text-black -ml-6">
-        <img src="../src/images/c.png" alt="Logo" className="w-8 h-8 object-contain" />
+        <img src="../images/c.png" alt="Logo" className="w-8 h-8 object-contain" />
         <span>Cadence</span>
       </div>
       <div className="w-[95%] mx-auto -mt-2">

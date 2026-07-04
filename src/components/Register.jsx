@@ -24,7 +24,7 @@ export default function Register() {
   return (
     <div className="flex flex-col mx-auto gap-y-4 px-8 py-6 w-full max-w-md">
       <div className="flex flex-row gap-x-2 items-center mt-4 text-2xl font-bold text-black justify-center">
-        <img src="../src/images/c.png" alt="Logo" className="w-8 h-8 object-contain" />
+        <img src="../images/c.png" alt="Logo" className="w-8 h-8 object-contain" />
         <span>Cadence</span>
       </div>
       <h1 className="text-4xl font-bold mb-4 text-center">Sign Up</h1>
