@@ -1,24 +1,33 @@
 import { useState } from "react";
 import { UserPlus } from "lucide-react";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-// If you have a register function in firebase.js you can import it here
-// import { register } from "../firebase/firebase.js";
+import toast from "react-hot-toast";
+import { register } from "../firebase/firebase.js";
 
 export default function Register() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (password !== confirmPassword) {
-      alert("Passwords do not match");
+      toast.error("Passwords do not match");
       return;
     }
-    
-    // Add your firebase registration logic here when needed
-    console.log("Registration requested for:", email);
+
+    try {
+      await register(email, password);
+      toast.success("Registration successful. Please sign in.");
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+      navigate("/login", { replace: true });
+    } catch (error) {
+      toast.error(error.message || "Registration failed");
+    }
   };
 
   return (

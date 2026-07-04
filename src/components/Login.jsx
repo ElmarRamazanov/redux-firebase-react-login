@@ -7,6 +7,7 @@ import { LogIn } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
 import { IoLogoFacebook } from "react-icons/io";
 import { FaGithub } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -16,12 +17,18 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = await login(email, password);
-    if (user) {
-      dispatch(handleLogin(user));
-      navigate("/", {
-        replace: true,
-      });
+
+    try {
+      const user = await login(email, password);
+
+      if (user) {
+        dispatch(handleLogin(user));
+        navigate("/", {
+          replace: true,
+        });
+      }
+    } catch (error) {
+      toast.error(error.message || "Login failed");
     }
   };
 

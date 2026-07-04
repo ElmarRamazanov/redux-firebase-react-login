@@ -1,6 +1,5 @@
 import { initializeApp } from "firebase/app";
 import { getAuth , createUserWithEmailAndPassword , signInWithEmailAndPassword , signOut} from "firebase/auth";
-import toast from "react-hot-toast";
 
 
 const firebaseConfig = {
@@ -25,7 +24,6 @@ export const register = async (email, password) => {
     const { user } = await createUserWithEmailAndPassword(auth, email, password);
     return user;
   } catch (error) {
-    toast.error(error.message);
     throw error;
   }
 }
@@ -37,7 +35,6 @@ export const login = async (email, password) => {
     const { user } = await signInWithEmailAndPassword(auth, email, password);
     return user;
   } catch (error) {
-    toast.error(error.message);
     throw error;
   }
 }
@@ -47,7 +44,6 @@ export const logout = async () => {
   try {
     await signOut(auth);
   } catch (error) {
-    toast.error(error.message);
     throw error;
   }
 }
